@@ -1,0 +1,44 @@
+Missing number in array
+
+
+Given an array of size N-1 such that it only contains distinct integers in the range of 1 to N. Find the missing element.
+
+Example 1:
+
+Input:
+N = 5
+A[] = {1,2,3,5}
+Output: 4
+Example 2:
+
+Input:
+N = 10
+A[] = {6,1,2,8,3,4,7,10,5}
+Output: 9
+
+//////////////////////////Solution//////////////////////////////
+
+
+class Solution{
+    missingNumber(arr,N){
+        // array = [1,2,3,5]
+       let temp = [];
+  for (let i = 0; i <= N; i++) {
+            temp[i] = 0;
+        }
+ 
+        for (let i = 0; i < N; i++) {
+            temp[arr[i] - 1] = 1;
+        }
+ 
+        let ans = 0;
+        for (let i = 0; i < N; i++) {
+            if (temp[i] == 0)
+                ans = i + 1;
+        }
+        
+        return ans
+        
+       
+    }
+}
