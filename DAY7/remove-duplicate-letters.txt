@@ -1,0 +1,40 @@
+https://leetcode.com/problems/remove-duplicate-letters/description/
+316. Remove Duplicate Letters
+
+Given a string s, remove duplicate letters so that every letter appears once and only once. You must make sure your result is 
+the smallest in lexicographical order among all possible results.
+
+Example 1:
+
+Input: s = "bcabc"
+Output: "abc"
+Example 2:
+
+Input: s = "cbacdcbc"
+Output: "acdb"
+
+var removeDuplicateLetters = function(s) {
+   let lastOccurrence = {};
+    let stack = [];
+
+    // Store the last occurrence index of each character in the string
+    for (let i = 0; i < s.length; i++) {
+        lastOccurrence[s[i]] = i;
+    }
+
+    for (let i = 0; i < s.length; i++) {
+        let char = s[i];
+
+        // Skip if the character is already in the stack
+        if (stack.includes(char)) continue;
+
+        // If the current character is smaller than the top of the stack and there's another occurrence of the top character later in the string
+        while (stack.length > 0 && char < stack[stack.length - 1] && i < lastOccurrence[stack[stack.length - 1]]) {
+            stack.pop(); // Pop the top character from the stack
+        }
+
+        stack.push(char); // Push the current character to the stack
+    }
+
+    return stack.join('');
+};
