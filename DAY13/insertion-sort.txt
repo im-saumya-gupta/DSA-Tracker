@@ -1,0 +1,17 @@
+//Insertion Sort
+//Insert an element from unsorted array to its correct positin in sorted array
+let arr = [3,2,5,1,9,4,7];
+
+for(let i=1;i<arr.length;i++)
+{
+        let current = arr[i];
+        let j = i-1;
+        while(arr[j]>current && j>=0)
+        {
+            arr[j+1]=arr[j];
+            j--;
+        }
+        arr[j+1]=current;
+}
+
+console.log(arr)
