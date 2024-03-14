@@ -1,0 +1,20 @@
+//Bubble Sort
+//Repeatedly swap two adjacent elements is they are in wrong order
+let arr = [3,2,5,1,9,4,7];
+let temp =0;
+let counter = 1;
+while(counter<arr.length)
+{
+    for(let i=0;i<arr.length-counter;i++)
+    {
+        if(arr[i]>arr[i+1])
+        {
+            temp = arr[i];
+            arr[i] = arr[i+1];
+            arr[i+1] = temp;
+        }
+    }
+     counter++;
+}
+
+console.log(arr)
