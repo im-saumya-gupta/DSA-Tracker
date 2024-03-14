@@ -1,0 +1,17 @@
+//Selection Sort
+//Find Minimum element in unsorted array and swap it with element at begining of unsorted array
+let arr = [3,2,5,1,9,4,7];
+let temp =0;
+for(let i=0;i<arr.length;i++)
+{
+    for(let j=i+1;j<arr.length;j++)
+    {
+        if(arr[j]<arr[i])
+        {
+            temp = arr[j];
+            arr[j]=arr[i];
+            arr[i]=temp;
+        }
+    }
+}
+console.log(arr)
